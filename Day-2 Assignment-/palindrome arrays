@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+#define MAX_SIZE 100
+
+int main() {
+    int arr[MAX_SIZE], reverse[MAX_SIZE];
+    int i, n, is_palindrome = 1;
+
+    // Read input array
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Reverse the array
+    for (i = 0; i < n; i++) {
+        reverse[i] = arr[n-i-1];
+    }
+
+    // Check if it's a palindrome
+    for (i = 0; i < n; i++) {
+        if (arr[i] != reverse[i]) {
+            is_palindrome = 0;
+            break;
+        }
+    }
+
+    // Print results
+    printf("Reversed array:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", reverse[i]);
+    }
+
+    if (is_palindrome) {
+        printf("\nThe array is a palindrome.");
+    } else {
+        printf("\nThe array is not a palindrome.");
+    }
+
+    return 0;
+}
