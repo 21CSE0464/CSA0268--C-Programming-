@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct Customer {
+    int accountNumber;
+    char name[50];
+    float balance;
+};
+
+void printLowBalanceCustomers(struct Customer customers[], int numCustomers) {
+    printf("Customers with balance less than 100 Rs:\n");
+    for (int i = 0; i < numCustomers; i++) {
+        if (customers[i].balance < 100.0) {
+            printf("Account number: %d, Name: %s\n", customers[i].accountNumber, customers[i].name);
+        }
+    }
+}
+
+int main() {
+    int numCustomers = 3;
+    struct Customer customers[numCustomers];
+    
+    // read customer information from user
+    for (int i = 0; i < numCustomers; i++) {
+        printf("Enter account number for customer %d: ", i+1);
+        scanf("%d", &customers[i].accountNumber);
+        
+        printf("Enter name for customer %d: ", i+1);
+        scanf("%s", customers[i].name);
+        
+        printf("Enter balance for customer %d: ", i+1);
+        scanf("%f", &customers[i].balance);
+    }
+    
+    // print low balance customers
+    printLowBalanceCustomers(customers, numCustomers);
+    
+    return 0;
+}
