@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_PLAYERS 11
+
+// Define the player structure
+struct player {
+    char name[50];
+    int runs;
+};
+
+int main() {
+    // Declare an array of player structures
+    struct player players[MAX_PLAYERS];
+    int i, num_players, total_runs = 0;
+    
+    printf("Enter the number of players in the team (maximum %d): ", MAX_PLAYERS);
+    scanf("%d", &num_players);
+    
+    // Input batting information for each player
+    for (i = 0; i < num_players; i++) {
+        printf("Enter the name of player %d: ", i+1);
+        scanf("%s", players[i].name);
+        printf("Enter the runs scored by player %d: ", i+1);
+        scanf("%d", &players[i].runs);
+        
+        total_runs += players[i].runs;  // Add the runs scored by the current player to the total runs
+    }
+    
+    // Display the total runs scored by the team
+    printf("\nTotal runs scored by the team: %d\n", total_runs);
+    
+    return 0;
+}
