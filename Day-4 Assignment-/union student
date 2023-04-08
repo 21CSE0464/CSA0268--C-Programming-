@@ -1,0 +1,11 @@
+union student:
+    char name[50]
+    float gpa
+
+new_student = student()
+
+new_student.name = input("Enter the student's name: ")
+new_student.gpa = float(input("Enter the student's GPA: "))
+
+print("Student's name:", new_student.name)
+print("Student's GPA:", new_student.gpa)
